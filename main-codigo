@@ -1,0 +1,69 @@
+#include <iostream>//Alunos: Gabriel de Barros Klettenberg e Lucas Cavalcante Leandro.
+using namespace std;
+    
+int main(){
+    
+long long int Cbarras;
+    
+cout<<"Digite o codigo de barras do produto: ";
+cin>>Cbarras;
+    
+if(Cbarras > 1000000000000 && Cbarras < 10000000000000){
+        
+    int N0 =  Cbarras%10; //Numero verificador
+    int N1 = Cbarras / 10 % 10;
+    int N2 = Cbarras / 100 % 10;
+    int N3 = Cbarras / 1000 % 10;
+    int N4 = Cbarras / 10000 % 10;
+    int N5 = Cbarras / 100000 % 10;
+    int N6 = Cbarras / 1000000 % 10;
+    int N7 = Cbarras / 10000000 % 10;
+    int N8 = Cbarras / 100000000 % 10;
+    int N9 = Cbarras / 1000000000 % 10;
+    int N10 = Cbarras / 10000000000 % 10;
+    int N11 = Cbarras / 100000000000 % 10;
+    int N12 = Cbarras / 1000000000000 % 10;
+
+    N1 *=3; // N1 = N1 * 3
+    N2 *=1;
+    N3 *=3;
+    N4 *=1;
+    N5 *=3;
+    N6 *=1;
+    N7 *=3;
+    N8 *=1;
+    N9 *=3;
+    N10 *=1;
+    N11 *=3;
+    N12 *=1;
+
+    int somatorio = N1+N2+N3+N4+N5+N6+N7+N8+N9+N10+N11+N12;
+    
+    int divisao = somatorio / 10;
+    
+    int soma1 = divisao + 1;
+    
+    int vezes = soma1 * 10;
+    
+    int verificador = vezes - somatorio;
+    
+    if(verificador == N0){
+        if(verificador % 10 == 0 ){
+        verificador = 0;
+        cout<<"Código de barras: "<<Cbarras;
+        cout<<"\nNummero verificador: "<<verificador;
+        } 
+        else if (verificador % 10 != 0){
+        cout<<"Código de barras: "<<Cbarras;
+        cout<<"\nNummero verificador: "<<verificador;  
+        }
+    }
+    
+    if(verificador != N0){
+        cout<<"Erro no digito verificador";
+    }
+} else{
+    cout<<"Número de dígitos invalido!\nSua numeração precisa conter 13 dígitos.";
+}
+return 0;
+}
